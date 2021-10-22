@@ -1,6 +1,14 @@
+#include "mpi.h"
 #include <iostream>
-int main()
+
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello world";
+    MPI_Init(&argc, &argv);
+
+    int rank;
+    MPI_Status status;
+
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    
     return 0;
 }
