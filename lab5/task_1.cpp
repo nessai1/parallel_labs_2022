@@ -12,16 +12,17 @@ int main(int argc, char* argv[])
 
     if (rank == 0)
     {
-        char msg[11];
-        MPI_Recv(msg, 11, MPI_CHAR, 1, 0, MPI_COMM_WORLD, &status);
-
-        std::cout << "Master get message: " << msg << '\n';
+        char msg[] = "Hello world";
+        MPI_Send(msg, 11, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
     }
     else if (rank == 1)
     {
-        char msg[] = "Hello world";
-        MPI_Send(msg, 11, MPI_CHAR, 0, 0, MPI_COMM_WORLD);
+        char msg[11];
+        MPI_Recv(msg, 11, MPI_CHAR, 0, 0, MPI_COMM_WORLD, &status);
+
+        std::cout << "Master set message: " << msg << '\n';
     }
 
     MPI_Finalize();
+    return 0;
 }
