@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/daniel/CLionProjects/parallelLabs/lab5/main.cpp
-stdio.h
--
+/home/daniel/CLionProjects/parallelLabs/lab5/task_1.cpp
 mpi.h
 /home/daniel/CLionProjects/parallelLabs/lab5/mpi.h
 iostream
