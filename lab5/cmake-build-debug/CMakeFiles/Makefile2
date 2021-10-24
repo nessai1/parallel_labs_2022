@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debu
 all: CMakeFiles/task_1.dir/all
 all: CMakeFiles/task_2.dir/all
 all: CMakeFiles/task_3.dir/all
+all: CMakeFiles/task_4.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,6 +77,7 @@ preinstall:
 clean: CMakeFiles/task_1.dir/clean
 clean: CMakeFiles/task_2.dir/clean
 clean: CMakeFiles/task_3.dir/clean
+clean: CMakeFiles/task_4.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -155,6 +157,32 @@ task_3: CMakeFiles/task_3.dir/rule
 CMakeFiles/task_3.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_3.dir/build.make CMakeFiles/task_3.dir/clean
 .PHONY : CMakeFiles/task_3.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/task_4.dir
+
+# All Build rule for target.
+CMakeFiles/task_4.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_4.dir/build.make CMakeFiles/task_4.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_4.dir/build.make CMakeFiles/task_4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target task_4"
+.PHONY : CMakeFiles/task_4.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/task_4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/task_4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/task_4.dir/rule
+
+# Convenience name for target.
+task_4: CMakeFiles/task_4.dir/rule
+.PHONY : task_4
+
+# clean rule for target.
+CMakeFiles/task_4.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_4.dir/build.make CMakeFiles/task_4.dir/clean
+.PHONY : CMakeFiles/task_4.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
