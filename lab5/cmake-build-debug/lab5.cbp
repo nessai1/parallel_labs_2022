@@ -27,11 +27,47 @@
 					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="task_1">
+				<Option output="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/task_1" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug"/>
-				<Option type="4"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/daniel/opt/usr/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 task_1"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="task_1/fast">
+				<Option output="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/task_1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/daniel/opt/usr/local/include"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 task_1/fast"/>
 					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -83,8 +119,8 @@
 					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="task_1">
-				<Option output="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/task_1" prefix_auto="0" extension_auto="0"/>
+			<Target title="task_3">
+				<Option output="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/task_3" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -100,14 +136,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 task_1"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 task_3"/>
 					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="task_1/fast">
-				<Option output="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/task_1" prefix_auto="0" extension_auto="0"/>
+			<Target title="task_3/fast">
+				<Option output="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/task_3" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -123,7 +159,17 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 task_1/fast"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 task_3/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j6 -f &quot;/home/daniel/CLionProjects/parallelLabs/lab5/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -135,6 +181,9 @@
 		</Unit>
 		<Unit filename="/home/daniel/CLionProjects/parallelLabs/lab5/task_2.cpp">
 			<Option target="task_2"/>
+		</Unit>
+		<Unit filename="/home/daniel/CLionProjects/parallelLabs/lab5/task_3.cpp">
+			<Option target="task_3"/>
 		</Unit>
 		<Unit filename="/home/daniel/CLionProjects/parallelLabs/lab5/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
