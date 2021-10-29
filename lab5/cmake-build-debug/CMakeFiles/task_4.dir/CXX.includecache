@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daniel/CLionProjects/parallelLabs/lab5/task_4.cpp
+mpi.h
+/home/daniel/CLionProjects/parallelLabs/lab5/mpi.h
+cstdlib
+-
+iostream
+-
+ctime
+-
+iomanip
+-
+vector
+-
+
+/home/daniel/opt/usr/local/include/mpi.h
+stddef.h
+-
+mpi_portable_platform.h
+/home/daniel/opt/usr/local/include/mpi_portable_platform.h
+openmpi/ompi/mpi/cxx/mpicxx.h
+/home/daniel/opt/usr/local/include/openmpi/ompi/mpi/cxx/mpicxx.h
+
+/home/daniel/opt/usr/local/include/mpi_portable_platform.h
+omp.h
+/home/daniel/opt/usr/local/include/omp.h
+omp.h
+/home/daniel/opt/usr/local/include/omp.h
+
