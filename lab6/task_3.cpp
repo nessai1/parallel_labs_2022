@@ -11,27 +11,21 @@ int main(int argc, char* argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     int msg, flag;
-    MPI_Status status;
-    MPI_Request request;
+    MPI_Status status[2];
+    MPI_Request request[2];
 
-    if (rank == 0)
+    for (int i = 0; i < size; i++)
     {
-        MPI_Isend(&rank, 1, MPI_INT, (rank + 1) % size, 0, MPI_COMM_WORLD, &request);
-        do{ MPI_Test(&request, &flag, &status); } while (!flag);
+        if (i == rank)
+        {
+            continue;
+        }
 
-        MPI_Irecv(&msg, 1, MPI_INT, size - 1, 0, MPI_COMM_WORLD, &request);
-        do{ MPI_Test(&request, &flag, &status); } while (!flag);
-        std::cout << "0 get message from last process: " << msg << '\n';
-    }
-    else
-    {
-        int sender = (rank - 1) % size;
-        MPI_Irecv(&msg, 1, MPI_INT, sender, 0, MPI_COMM_WORLD, &request);
-        do { MPI_Test(&request, &flag, &status); } while (!flag);
+        MPI_Isend(&rank, 1, MPI_INT, i, 0, MPI_COMM_WORLD, &request[0]);
+        MPI_Irecv(&msg, 1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &request[1]);
+
+        MPI_Waitall(2, request, status);
         std::cout << '[' << rank << "]: Receive message: " << msg << '\n';
-
-        MPI_Isend(&rank, 1, MPI_INT, (rank + 1) % size, 0, MPI_COMM_WORLD, &request);
-        do{ MPI_Test(&request, &flag, &status); } while (!flag);
     }
 
     MPI_Finalize();
