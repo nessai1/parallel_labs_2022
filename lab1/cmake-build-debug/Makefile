@@ -65,16 +65,6 @@ CMAKE_BINARY_DIR = /home/daniel/CLionProjects/parallelLabs/lab1/cmake-build-debu
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/175/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -84,6 +74,16 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/snap/clion/175/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -117,19 +117,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named task_1_modified
-
-# Build rule for target.
-task_1_modified: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 task_1_modified
-.PHONY : task_1_modified
-
-# fast build rule for target.
-task_1_modified/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_1_modified.dir/build.make CMakeFiles/task_1_modified.dir/build
-.PHONY : task_1_modified/fast
-
-#=============================================================================
 # Target rules for targets named task_1
 
 # Build rule for target.
@@ -141,6 +128,32 @@ task_1: cmake_check_build_system
 task_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_1.dir/build.make CMakeFiles/task_1.dir/build
 .PHONY : task_1/fast
+
+#=============================================================================
+# Target rules for targets named task_2
+
+# Build rule for target.
+task_2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 task_2
+.PHONY : task_2
+
+# fast build rule for target.
+task_2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_2.dir/build.make CMakeFiles/task_2.dir/build
+.PHONY : task_2/fast
+
+#=============================================================================
+# Target rules for targets named task_1_modified
+
+# Build rule for target.
+task_1_modified: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 task_1_modified
+.PHONY : task_1_modified
+
+# fast build rule for target.
+task_1_modified/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_1_modified.dir/build.make CMakeFiles/task_1_modified.dir/build
+.PHONY : task_1_modified/fast
 
 task_1.o: task_1.cpp.o
 .PHONY : task_1.o
@@ -190,6 +203,30 @@ task_1_modified.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_1_modified.dir/build.make CMakeFiles/task_1_modified.dir/task_1_modified.cpp.s
 .PHONY : task_1_modified.cpp.s
 
+task_2.o: task_2.cpp.o
+.PHONY : task_2.o
+
+# target to build an object file
+task_2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_2.dir/build.make CMakeFiles/task_2.dir/task_2.cpp.o
+.PHONY : task_2.cpp.o
+
+task_2.i: task_2.cpp.i
+.PHONY : task_2.i
+
+# target to preprocess a source file
+task_2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_2.dir/build.make CMakeFiles/task_2.dir/task_2.cpp.i
+.PHONY : task_2.cpp.i
+
+task_2.s: task_2.cpp.s
+.PHONY : task_2.s
+
+# target to generate assembly for a file
+task_2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/task_2.dir/build.make CMakeFiles/task_2.dir/task_2.cpp.s
+.PHONY : task_2.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -200,12 +237,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... task_1"
 	@echo "... task_1_modified"
+	@echo "... task_2"
 	@echo "... task_1.o"
 	@echo "... task_1.i"
 	@echo "... task_1.s"
 	@echo "... task_1_modified.o"
 	@echo "... task_1_modified.i"
 	@echo "... task_1_modified.s"
+	@echo "... task_2.o"
+	@echo "... task_2.i"
+	@echo "... task_2.s"
 .PHONY : help
 
 
