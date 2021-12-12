@@ -29,5 +29,5 @@ int main()
         std::cout << '[' << omp_get_thread_num() << "]: Sum = " << chunk << '\n';
     }
 
-    std::cout << "Sum = " << sum;
+    std::cout << "Sum = " << sum << '\n';
 }
