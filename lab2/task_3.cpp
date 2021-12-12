@@ -1,9 +1,13 @@
 #include <iostream>
 #include <omp.h>
 #include <vector>
+#include <cmath>
+#include <chrono>
+#include <ctime>
 
 int main()
 {
+    srand(time(0));
     int N;
     std::cout << "Enter N: ";
     std::cin >> N;
@@ -16,21 +20,13 @@ int main()
         C[i] = std::vector<int>(N, 0);
     }
 
-    std::cout << "Enter matrix A\n-----\n";
+    std::cout << "Randomized matrix A and B (" << N << 'x' << N << ")...\n";
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
-            std::cin >> A[i][j];
-        }
-    }
-
-    std::cout << "Enter matrix B\n-----\n";
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            std::cin >> B[i][j];
+            A[i][j] = 1 + rand() % 1000;
+            B[i][j] = 1 + rand() % 1000;
         }
     }
 
@@ -39,6 +35,7 @@ int main()
     std::cin >> threads;
 
     omp_set_num_threads(threads);
+    auto start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -52,16 +49,30 @@ int main()
             C[i][j] = a;
         }
     }
+    auto end = std::chrono::high_resolution_clock::now();
 
-    std::cout << "result: \n";
+    std::cout << "Parallel Time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count() << "ns" << '\n';
+
+    //// without OpenMP
+    for (int i = 0; i < N; i++)
+    {
+        C[i] = std::vector<int>(N, 0);
+    }
+
+    start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
-            std::cout << C[i][j] << ' ';
+            a = 0;
+            for (int q = 0; q < N; q++)
+            {
+                a += A[i][q] * B[q][j];
+            }
+            C[i][j] = a;
         }
-        std::cout << '\n';
     }
-
+    end = std::chrono::high_resolution_clock::now();
+    std::cout << "Single thread Time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns"  << '\n';
     return 0;
 }
