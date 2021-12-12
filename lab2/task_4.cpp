@@ -13,7 +13,7 @@ int main()
     omp_set_num_threads(k);
 
     int sum = 0;
-    #pragma omp parallel reduction(+:sum)
+#pragma omp parallel shared(sum)
     {
         int chunk = 0;
         #pragma omp for schedule(static)
@@ -22,6 +22,7 @@ int main()
             chunk += i;
         }
 
+        #pragma omp atomic
         sum += chunk;
 
         #pragma omp critical
