@@ -1,0 +1,13 @@
+/snap/clion/175/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/175/bin/ninja/linux/ninja -G Ninja /home/daniel/CLionProjects/parallelLabs/lab7
+-- Configuring done
+CMake Error at CMakeLists.txt:10 (add_executable):
+  Cannot find source file:
+
+    task_1.cpp
+
+
+CMake Error at CMakeLists.txt:10 (add_executable):
+  No SOURCES given to target: task_1
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

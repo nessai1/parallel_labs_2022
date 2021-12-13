@@ -51,7 +51,7 @@ int main()
     }
     auto end = std::chrono::high_resolution_clock::now();
 
-    std::cout << "Parallel Time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count() << "ns" << '\n';
+    std::cout << "Parallel Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end-start).count() << "ns" << '\n';
 
     //// without OpenMP
     for (int i = 0; i < N; i++)
@@ -73,6 +73,6 @@ int main()
         }
     }
     end = std::chrono::high_resolution_clock::now();
-    std::cout << "Single thread Time: " << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns"  << '\n';
+    std::cout << "Single thread Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << "ns"  << '\n';
     return 0;
 }
