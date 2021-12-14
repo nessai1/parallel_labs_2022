@@ -52,6 +52,17 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/daniel/CLionProjects/parallelLabs/lab7/cmake-build-debug && /snap/clion/175/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
 # =============================================================================
 # Object build statements for EXECUTABLE target task_1
 
@@ -148,16 +159,37 @@ build task_3: CXX_EXECUTABLE_LINKER__task_3_Debug CMakeFiles/task_3.dir/task_3.c
   TARGET_FILE = task_3
   TARGET_PDB = task_3.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target task_4
+
 
 #############################################
-# Utility command for edit_cache
+# Order-only phony target for task_4
 
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/daniel/CLionProjects/parallelLabs/lab7/cmake-build-debug && /snap/clion/175/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
+build cmake_object_order_depends_target_task_4: phony || CMakeFiles/task_4.dir
 
-build edit_cache: phony CMakeFiles/edit_cache.util
+build CMakeFiles/task_4.dir/task_4.cpp.o: CXX_COMPILER__task_4_Debug /home/daniel/CLionProjects/parallelLabs/lab7/task_4.cpp || cmake_object_order_depends_target_task_4
+  DEP_FILE = CMakeFiles/task_4.dir/task_4.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/daniel/opt/usr/local/include
+  OBJECT_DIR = CMakeFiles/task_4.dir
+  OBJECT_FILE_DIR = CMakeFiles/task_4.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target task_4
+
+
+#############################################
+# Link the executable task_4
+
+build task_4: CXX_EXECUTABLE_LINKER__task_4_Debug CMakeFiles/task_4.dir/task_4.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/task_4.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = task_4
+  TARGET_PDB = task_4.dbg
 
 # =============================================================================
 # Target aliases.
@@ -170,7 +202,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 #############################################
 # Folder: /home/daniel/CLionProjects/parallelLabs/lab7/cmake-build-debug
 
-build all: phony task_1 task_2 task_3
+build all: phony task_1 task_2 task_3 task_4
 
 # =============================================================================
 # Built-in targets
