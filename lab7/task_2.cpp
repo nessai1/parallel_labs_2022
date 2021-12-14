@@ -35,32 +35,57 @@ int main(int argc, char *argv[])
         std::cin >> buf;
 
         startTime = MPI_Wtime();
-    }
 
+        for (int i = 1; i < size; i++)
+        {
+            MPI_Send(&n, 1, MPI_INT, i, i, MPI_COMM_WORLD);
+            MPI_Send(&buf, n, MPI_CHAR, i, i, MPI_COMM_WORLD);
+        }
+    }
+    else
+    {
+        MPI_Recv(&n, 1, MPI_INT, 0, rank, MPI_COMM_WORLD, &stat);
+        MPI_Recv(&buf, n, MPI_CHAR, 0, rank, MPI_COMM_WORLD, &stat);
+    }
     MPI_Barrier(MPI_COMM_WORLD);
-    MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&buf, n, MPI_CHAR, 0, MPI_COMM_WORLD);
+
     for (int i = rank; i < n; i += size)
     {
         symbols[getPos(buf[i])]++;
     }
 
     MPI_Barrier(MPI_COMM_WORLD);
-    MPI_Reduce(&symbols, &rs, 26, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
     if (rank == 0)
     {
         for (int i = 0; i < 26; i++)
         {
-            if (rs[i] > 0)
+            for (int j = 1; j < size; j++)
             {
-                std::cout << getSymbol(i) << '=' << rs[i] << '\n';
+                int symbol;
+                MPI_Recv(&symbol, 1, MPI_INT, j, j, MPI_COMM_WORLD, &stat);
+                symbols[i] += symbol;
             }
         }
+        for (int i = 0; i < 26; i++)
+        {
+            if (symbols[i] > 0)
+            {
+                std::cout << getSymbol(i) << '=' << symbols[i] << '\n';
+            }
+        }
+
         double endTime = MPI_Wtime();
         double executeTime = endTime-startTime;
         std::cout.precision(5);
         std::cout << executeTime << " sec.\n";
+    }
+    else
+    {
+        for (int i = 0; i < 26; i++)
+        {
+            MPI_Send(&symbols[i], 1, MPI_INT, 0, rank, MPI_COMM_WORLD);
+        }
     }
     MPI_Finalize();
 
