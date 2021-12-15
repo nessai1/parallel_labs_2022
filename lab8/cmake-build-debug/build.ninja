@@ -64,6 +64,38 @@ build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
 build edit_cache: phony CMakeFiles/edit_cache.util
 
 # =============================================================================
+# Object build statements for EXECUTABLE target tst
+
+
+#############################################
+# Order-only phony target for tst
+
+build cmake_object_order_depends_target_tst: phony || CMakeFiles/tst.dir
+
+build CMakeFiles/tst.dir/tst.cpp.o: CXX_COMPILER__tst_Debug /home/daniel/CLionProjects/parallelLabs/lab8/tst.cpp || cmake_object_order_depends_target_tst
+  DEP_FILE = CMakeFiles/tst.dir/tst.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/daniel/opt/usr/local/include
+  OBJECT_DIR = CMakeFiles/tst.dir
+  OBJECT_FILE_DIR = CMakeFiles/tst.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target tst
+
+
+#############################################
+# Link the executable tst
+
+build tst: CXX_EXECUTABLE_LINKER__tst_Debug CMakeFiles/tst.dir/tst.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/tst.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = tst
+  TARGET_PDB = tst.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target task_1
 
 
@@ -106,7 +138,7 @@ build task_1: CXX_EXECUTABLE_LINKER__task_1_Debug CMakeFiles/task_1.dir/task_1.c
 #############################################
 # Folder: /home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug
 
-build all: phony task_1
+build all: phony tst task_1
 
 # =============================================================================
 # Built-in targets
