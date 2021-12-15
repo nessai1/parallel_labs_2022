@@ -1,0 +1,1 @@
+/home/daniel/opt/usr/local/bin/mpic++ -g CMakeFiles/lab4.dir/main.cpp.o -o lab4 

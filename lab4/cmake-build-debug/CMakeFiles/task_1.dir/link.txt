@@ -1,0 +1,1 @@
+/home/daniel/opt/usr/local/bin/mpic++ -g CMakeFiles/task_1.dir/task_1.cpp.o -o task_1 
