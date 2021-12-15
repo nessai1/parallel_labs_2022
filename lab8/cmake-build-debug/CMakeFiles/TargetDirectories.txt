@@ -1,4 +1,4 @@
 /home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug/CMakeFiles/tst.dir
+/home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug/CMakeFiles/task_2.dir
 /home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug/CMakeFiles/task_1.dir

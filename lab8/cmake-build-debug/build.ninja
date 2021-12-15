@@ -64,36 +64,36 @@ build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
 build edit_cache: phony CMakeFiles/edit_cache.util
 
 # =============================================================================
-# Object build statements for EXECUTABLE target tst
+# Object build statements for EXECUTABLE target task_2
 
 
 #############################################
-# Order-only phony target for tst
+# Order-only phony target for task_2
 
-build cmake_object_order_depends_target_tst: phony || CMakeFiles/tst.dir
+build cmake_object_order_depends_target_task_2: phony || CMakeFiles/task_2.dir
 
-build CMakeFiles/tst.dir/tst.cpp.o: CXX_COMPILER__tst_Debug /home/daniel/CLionProjects/parallelLabs/lab8/tst.cpp || cmake_object_order_depends_target_tst
-  DEP_FILE = CMakeFiles/tst.dir/tst.cpp.o.d
+build CMakeFiles/task_2.dir/task_2.cpp.o: CXX_COMPILER__task_2_Debug /home/daniel/CLionProjects/parallelLabs/lab8/task_2.cpp || cmake_object_order_depends_target_task_2
+  DEP_FILE = CMakeFiles/task_2.dir/task_2.cpp.o.d
   FLAGS = -g -std=gnu++17
   INCLUDES = -I/home/daniel/opt/usr/local/include
-  OBJECT_DIR = CMakeFiles/tst.dir
-  OBJECT_FILE_DIR = CMakeFiles/tst.dir
+  OBJECT_DIR = CMakeFiles/task_2.dir
+  OBJECT_FILE_DIR = CMakeFiles/task_2.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target tst
+# Link build statements for EXECUTABLE target task_2
 
 
 #############################################
-# Link the executable tst
+# Link the executable task_2
 
-build tst: CXX_EXECUTABLE_LINKER__tst_Debug CMakeFiles/tst.dir/tst.cpp.o
+build task_2: CXX_EXECUTABLE_LINKER__task_2_Debug CMakeFiles/task_2.dir/task_2.cpp.o
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/tst.dir
+  OBJECT_DIR = CMakeFiles/task_2.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = tst
-  TARGET_PDB = tst.dbg
+  TARGET_FILE = task_2
+  TARGET_PDB = task_2.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target task_1
@@ -138,7 +138,7 @@ build task_1: CXX_EXECUTABLE_LINKER__task_1_Debug CMakeFiles/task_1.dir/task_1.c
 #############################################
 # Folder: /home/daniel/CLionProjects/parallelLabs/lab8/cmake-build-debug
 
-build all: phony tst task_1
+build all: phony task_2 task_1
 
 # =============================================================================
 # Built-in targets

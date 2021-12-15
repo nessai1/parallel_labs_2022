@@ -1,7 +1,7 @@
 #include <iostream>
 #include "mpi.h"
 
-int A[200], B[200], Cbuf[200], C[200], Arecv[200];
+int A[200], B[200], Cbuf[200], Crecv[200], C[200], Arecv[200];
 double startTime;
 
 int main(int argc, char *argv[])
@@ -65,7 +65,21 @@ int main(int argc, char *argv[])
     }
 
     MPI_Bcast(&B, n*n, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Scatter(&A, step*n, MPI_INT, &Arecv, step*n, MPI_INT, 0, MPI_COMM_WORLD);
+    if (rank == 0)
+    {
+        for (int i = 1; i < size; i++)
+        {
+            MPI_Send(A+(i*step*n), step*n, MPI_INT, i, i, MPI_COMM_WORLD);
+        }
+        for (int i = 0; i < step*n; i++)
+        {
+            Arecv[i] = A[i];
+        }
+    }
+    else
+    {
+        MPI_Recv(&Arecv, step*n, MPI_INT, 0, rank, MPI_COMM_WORLD, &stat);
+    }
 
     for (int i = 0; i < step; i++)
     {
@@ -80,8 +94,25 @@ int main(int argc, char *argv[])
         }
     }
 
-    MPI_Gather(&Cbuf, step*n, MPI_INT, &C, step*n, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Barrier(MPI_COMM_WORLD);
+    if (rank == 0)
+    {
+        for (int i = 0; i < step*n; i++)
+        {
+            C[i] = Cbuf[i];
+        }
+        for (int i = 1; i < size; i++)
+        {
+            MPI_Recv(&Crecv, step*n, MPI_INT, i, i, MPI_COMM_WORLD, &stat);
+            for (int j = 0; j < step*n; j++)
+            {
+                C[i*step*n+j] = Crecv[j];
+            }
+        }
+    }
+    else
+    {
+        MPI_Send(&Cbuf, step*n, MPI_INT, 0, rank, MPI_COMM_WORLD);
+    }
 
     if (rank == 0)
     {
