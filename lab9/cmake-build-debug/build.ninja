@@ -52,17 +52,6 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
-
-#############################################
-# Utility command for edit_cache
-
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug && /snap/clion/175/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build edit_cache: phony CMakeFiles/edit_cache.util
-
 # =============================================================================
 # Object build statements for EXECUTABLE target task_1
 
@@ -96,6 +85,81 @@ build task_1: CXX_EXECUTABLE_LINKER__task_1_Debug CMakeFiles/task_1.dir/task_1.c
   TARGET_PDB = task_1.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target task_2
+
+
+#############################################
+# Order-only phony target for task_2
+
+build cmake_object_order_depends_target_task_2: phony || CMakeFiles/task_2.dir
+
+build CMakeFiles/task_2.dir/task_2.cpp.o: CXX_COMPILER__task_2_Debug /home/daniel/CLionProjects/parallelLabs/lab9/task_2.cpp || cmake_object_order_depends_target_task_2
+  DEP_FILE = CMakeFiles/task_2.dir/task_2.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/daniel/opt/usr/local/include
+  OBJECT_DIR = CMakeFiles/task_2.dir
+  OBJECT_FILE_DIR = CMakeFiles/task_2.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target task_2
+
+
+#############################################
+# Link the executable task_2
+
+build task_2: CXX_EXECUTABLE_LINKER__task_2_Debug CMakeFiles/task_2.dir/task_2.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/task_2.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = task_2
+  TARGET_PDB = task_2.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target task_2_modified
+
+
+#############################################
+# Order-only phony target for task_2_modified
+
+build cmake_object_order_depends_target_task_2_modified: phony || CMakeFiles/task_2_modified.dir
+
+build CMakeFiles/task_2_modified.dir/task_2_modified.cpp.o: CXX_COMPILER__task_2_modified_Debug /home/daniel/CLionProjects/parallelLabs/lab9/task_2_modified.cpp || cmake_object_order_depends_target_task_2_modified
+  DEP_FILE = CMakeFiles/task_2_modified.dir/task_2_modified.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/daniel/opt/usr/local/include
+  OBJECT_DIR = CMakeFiles/task_2_modified.dir
+  OBJECT_FILE_DIR = CMakeFiles/task_2_modified.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target task_2_modified
+
+
+#############################################
+# Link the executable task_2_modified
+
+build task_2_modified: CXX_EXECUTABLE_LINKER__task_2_modified_Debug CMakeFiles/task_2_modified.dir/task_2_modified.cpp.o
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/task_2_modified.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = task_2_modified
+  TARGET_PDB = task_2_modified.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug && /snap/clion/175/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+# =============================================================================
 # Target aliases.
 
 # =============================================================================
@@ -106,7 +170,7 @@ build task_1: CXX_EXECUTABLE_LINKER__task_1_Debug CMakeFiles/task_1.dir/task_1.c
 #############################################
 # Folder: /home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug
 
-build all: phony task_1
+build all: phony task_1 task_2 task_2_modified
 
 # =============================================================================
 # Built-in targets
