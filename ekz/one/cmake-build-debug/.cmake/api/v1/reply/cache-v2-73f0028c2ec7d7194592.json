@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/175/bin/cmake/linux/bin/cmake"
+			"value" : "/snap/clion/177/bin/cmake/linux/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/175/bin/cmake/linux/bin/cpack"
+			"value" : "/snap/clion/177/bin/cmake/linux/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/175/bin/cmake/linux/bin/ctest"
+			"value" : "/snap/clion/177/bin/cmake/linux/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -579,7 +579,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/lab9"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -631,7 +631,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/snap/clion/175/bin/ninja/linux/ninja"
+			"value" : "/snap/clion/177/bin/ninja/linux/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -819,7 +819,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "lab4"
+			"value" : "one"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -863,7 +863,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/175/bin/cmake/linux/share/cmake-3.21"
+			"value" : "/snap/clion/177/bin/cmake/linux/share/cmake-3.21"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1102,7 +1102,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "lab4_BINARY_DIR",
+			"name" : "one_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1111,10 +1111,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one/cmake-build-debug"
 		},
 		{
-			"name" : "lab4_IS_TOP_LEVEL",
+			"name" : "one_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1126,7 +1126,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "lab4_SOURCE_DIR",
+			"name" : "one_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1135,43 +1135,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/lab9"
-		},
-		{
-			"name" : "lab9_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug"
-		},
-		{
-			"name" : "lab9_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
-		},
-		{
-			"name" : "lab9_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/lab9"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one"
 		}
 	],
 	"kind" : "cache",

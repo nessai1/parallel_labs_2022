@@ -80,7 +80,7 @@ rule CXX_EXECUTABLE_LINKER__task_2_modified_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/clion/175/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/daniel/CLionProjects/parallelLabs/lab9 -B/home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug
+  command = /snap/clion/177/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/daniel/CLionProjects/parallelLabs/lab9 -B/home/daniel/CLionProjects/parallelLabs/lab9/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
@@ -89,7 +89,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /snap/clion/175/bin/ninja/linux/ninja $FILE_ARG -t clean $TARGETS
+  command = /snap/clion/177/bin/ninja/linux/ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -97,6 +97,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /snap/clion/175/bin/ninja/linux/ninja -t targets
+  command = /snap/clion/177/bin/ninja/linux/ninja -t targets
   description = All primary targets available:
 
