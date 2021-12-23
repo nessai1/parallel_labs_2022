@@ -22,7 +22,7 @@ int main() {
 
     omp_set_num_threads(THREADS);
 
-    double h = (a+b)/N;
+    double h = (std::abs(a)+std::abs(b))/N;
     double sum = 0;
     double rs = 0;
     #pragma omp parallel reduction(+ : rs) private(sum)
@@ -30,7 +30,7 @@ int main() {
         #pragma omp  for
         for (int i = 0; i < N; i++)
         {
-            double x = h * ((double)i + 0.5);
+            double x = a + h * ((double)i + 0.5);
             sum += f(x);
         }
         rs = h * sum;
