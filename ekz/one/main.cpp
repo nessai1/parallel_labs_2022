@@ -36,5 +36,5 @@ int main() {
         rs = h * sum;
     }
 
-    std::cout << "RESULT: " << rs;
+    std::cout << "RESULT: " << rs << '\n';
 }
