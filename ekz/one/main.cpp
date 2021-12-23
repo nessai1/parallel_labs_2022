@@ -22,7 +22,16 @@ int main() {
 
     omp_set_num_threads(THREADS);
 
-    double h = (std::abs(a)+std::abs(b))/N;
+    double h;
+    if (a <= 0 && b >= 0)
+        h = (std::abs(a) + std::abs(b))/N;
+    else if (a >= 0 && b >= 0)
+        h = (b - a) / N;
+    else if (a <= 0 && b <= 0)
+        h = std::abs(a - b) / N;
+    else
+        h = (b - a) / N;
+
     double sum = 0;
     double rs = 0;
     #pragma omp parallel reduction(+ : rs) private(sum)
