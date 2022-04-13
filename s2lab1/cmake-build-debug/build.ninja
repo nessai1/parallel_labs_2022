@@ -52,6 +52,37 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+# =============================================================================
+# Object build statements for EXECUTABLE target task1
+
+
+#############################################
+# Order-only phony target for task1
+
+build cmake_object_order_depends_target_task1: phony || CMakeFiles/task1.dir
+
+build CMakeFiles/task1.dir/task1.cpp.o: CXX_COMPILER__task1_Debug /home/daniel/CLionProjects/parallelLabs/s2lab1/task1.cpp || cmake_object_order_depends_target_task1
+  DEP_FILE = CMakeFiles/task1.dir/task1.cpp.o.d
+  FLAGS = -fopenmp -g -std=gnu++17
+  OBJECT_DIR = CMakeFiles/task1.dir
+  OBJECT_FILE_DIR = CMakeFiles/task1.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target task1
+
+
+#############################################
+# Link the executable task1
+
+build task1: CXX_EXECUTABLE_LINKER__task1_Debug CMakeFiles/task1.dir/task1.cpp.o
+  FLAGS = -fopenmp -g
+  OBJECT_DIR = CMakeFiles/task1.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = task1
+  TARGET_PDB = task1.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -105,7 +136,7 @@ build example: CXX_EXECUTABLE_LINKER__example_Debug CMakeFiles/example.dir/examp
 #############################################
 # Folder: /home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug
 
-build all: phony example
+build all: phony task1 example
 
 # =============================================================================
 # Built-in targets
