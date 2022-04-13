@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one/cmake-build-debug"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/177/bin/cmake/linux/bin/cmake"
+			"value" : "/snap/clion/184/bin/cmake/linux/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/177/bin/cmake/linux/bin/cpack"
+			"value" : "/snap/clion/184/bin/cmake/linux/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/177/bin/cmake/linux/bin/ctest"
+			"value" : "/snap/clion/184/bin/cmake/linux/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -579,7 +579,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -631,7 +631,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/snap/clion/177/bin/ninja/linux/ninja"
+			"value" : "/snap/clion/184/bin/ninja/linux/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -819,7 +819,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "one"
+			"value" : "s2lab1"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -863,7 +863,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/177/bin/cmake/linux/share/cmake-3.21"
+			"value" : "/snap/clion/184/bin/cmake/linux/share/cmake-3.21"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1102,7 +1102,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "one_BINARY_DIR",
+			"name" : "s2lab1_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1111,10 +1111,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one/cmake-build-debug"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug"
 		},
 		{
-			"name" : "one_IS_TOP_LEVEL",
+			"name" : "s2lab1_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1126,7 +1126,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "one_SOURCE_DIR",
+			"name" : "s2lab1_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1135,7 +1135,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/ekz/one"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1"
 		}
 	],
 	"kind" : "cache",

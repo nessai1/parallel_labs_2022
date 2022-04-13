@@ -1,67 +1,58 @@
 #include <iostream>
-#include "mpi.h"
+#include <mpi.h>
 #include <ctime>
-#define ARR_SIZE 5
+#define ARR_SIZE 10
 
-int main(int argc, char *argv[])
-{
-    int size, rank, n;
-    int A[ARR_SIZE];
-    int trash[ARR_SIZE];
 
-    MPI_Status stat;
+
+using namespace std;
+
+
+
+
+int main(int argc, char* argv[]) {
+    float A[ARR_SIZE];
+    float result[ARR_SIZE];
+
+    srand(time(0));
     MPI_Init(&argc, &argv);
 
-    srand(time(nullptr));
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
-    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
-    if (rank == 0)
+    for (int i = 0; i < ARR_SIZE; i++)
     {
-        std::cout << "Введите кол-во повторений: ";
-        std::cin >> n;
+        A[i] = ((float)i + static_cast<float>(rand())/ (static_cast<float>(RAND_MAX/(world_rank+1+ARR_SIZE-i))))*(world_rank+rand()%ARR_SIZE);
     }
-    MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < world_size; i++)
     {
-        if (rank == 0)
+        if (i == world_rank)
         {
-            int sender = 1 + (rand() % size);
-            for (int j = 1; j < size; j++)
+            std::cout << "RANK " << i << " ELEMENTS:\n";
+            for (int j = 0; j < ARR_SIZE; j++)
             {
-                MPI_Probe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &stat);
-                if (stat.MPI_SOURCE == sender)
-                {
-                    MPI_Recv(&A, ARR_SIZE, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &stat);
-                }
-                else
-                {
-                    MPI_Recv(&trash, ARR_SIZE, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &stat);
-                }
-            }
-            std::cout << "Get message from [" << sender << "] \n";
-            std::cout << "Message: ";
-            for (int j : A)
-            {
-                std::cout << j << ' ';
+                std::cout << A[j] << ' ';
             }
             std::cout << '\n';
         }
-        else
-        {
-            for (int & j : A)
-            {
-                j = (rand() % 1000) * rank / (rank/3+1); // корейский рандом для устранения повторений из-за работы рандомайзера
-            }
-            MPI_Send(&A, ARR_SIZE, MPI_INT, 0, rank, MPI_COMM_WORLD);
-        }
-
         MPI_Barrier(MPI_COMM_WORLD);
     }
 
-    MPI_Finalize();
+    MPI_Reduce(&A, &result, ARR_SIZE, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
 
-    return EXIT_SUCCESS;
+    if (world_rank == 0)
+    {
+        std::cout << "SUM RESULT:\n";
+        for (int i = 0; i < ARR_SIZE; i++)
+        {
+            std::cout << result[i] << ' ';
+        }
+        std::cout << '\n';
+    }
+
+
+    MPI_Finalize();
 }
