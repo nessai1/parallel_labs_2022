@@ -1,4 +1,5 @@
+/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/example.dir
+/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/task2.dir
+/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/task1.dir
-/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug/CMakeFiles/example.dir
