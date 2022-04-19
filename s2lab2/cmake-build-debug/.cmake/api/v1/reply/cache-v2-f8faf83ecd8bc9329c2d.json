@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab2/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "21"
+			"value" : "22"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_COMMAND",
@@ -103,7 +103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/184/bin/cmake/linux/bin/cmake"
+			"value" : "/snap/clion/189/bin/cmake/linux/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/184/bin/cmake/linux/bin/cpack"
+			"value" : "/snap/clion/189/bin/cmake/linux/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/184/bin/cmake/linux/bin/ctest"
+			"value" : "/snap/clion/189/bin/cmake/linux/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -402,6 +402,18 @@
 			"value" : "CMAKE_DLLTOOL-NOTFOUND"
 		},
 		{
+			"name" : "CMAKE_EDIT_COMMAND",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to cache edit program executable."
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "/snap/clion/189/bin/cmake/linux/bin/ccmake"
+		},
+		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
 			"properties" : 
 			[
@@ -579,7 +591,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -631,7 +643,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/snap/clion/184/bin/ninja/linux/ninja"
+			"value" : "/snap/clion/189/bin/ninja/linux/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -819,7 +831,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "s2lab1"
+			"value" : "s2lab2"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -863,7 +875,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/snap/clion/184/bin/cmake/linux/share/cmake-3.21"
+			"value" : "/snap/clion/189/bin/cmake/linux/share/cmake-3.22"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1102,7 +1114,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "s2lab1_BINARY_DIR",
+			"name" : "s2lab2_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1111,10 +1123,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1/cmake-build-debug"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab2/cmake-build-debug"
 		},
 		{
-			"name" : "s2lab1_IS_TOP_LEVEL",
+			"name" : "s2lab2_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1126,7 +1138,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "s2lab1_SOURCE_DIR",
+			"name" : "s2lab2_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1135,7 +1147,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab1"
+			"value" : "/home/daniel/CLionProjects/parallelLabs/s2lab2"
 		}
 	],
 	"kind" : "cache",
