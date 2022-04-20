@@ -31,19 +31,24 @@ int main(int argc, char** argv) {
 
     if (rank == 0)
     {
-        std::cout << "\n\n\tGenerated matrix";
-
-
+        for (int i = 0; i < n*n; i++)
+        {
+            A[i] = rand() % MAX_VALUE;
+        }
         for (int i = 0; i < n; i++)
         {
-            std::cout << '\n';
-            for (int j = 0; j < n; j++)
-            {
-                A[i*n+j] = rand() % MAX_VALUE;
-                std::cout << A[i*n+j] << '\t';
-            }
             V[i] = rand() % MAX_VALUE;
         }
+        std::cout << "\n\n\tGenerated matrix\n";
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                std::cout << A[j * n + i] << ' ';
+            }
+            std::cout << '\n';
+        }
+
         std::cout << "\n\n\tGenerated Vector\n";
         for (int i = 0; i < n; i++)
         {
@@ -56,21 +61,23 @@ int main(int argc, char** argv) {
     MPI_Scatter(A, n*(n/size), MPI_INT, Arecv, n*(n/size), MPI_INT, 0, MPI_COMM_WORLD);
 
     int *Vcalc, *Vrs;
-    Vcalc = new int[n/size];
+    Vcalc = new int[n];
     Vrs = new int[n];
 
+    for (int i = 0; i < n; i++)
+    {
+        Vcalc[i] = 0;
+    }
 
 #pragma omp for
     for (int i = 0; i < (n/size); i++)
     {
-        Vcalc[i] = 0;
         for (int j = 0; j < n; j++)
         {
-            Vcalc[i] += Arecv[(i * n) + j] * V[j];
+            Vcalc[j] += V[i+((n/size)*rank)] * Arecv[j + (n*i)];
         }
     }
-
-    MPI_Gather(Vcalc, n/size, MPI_INT, Vrs, n/size, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Reduce(Vcalc, Vrs, n, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
     if (rank == 0)
     {
         std::cout << "\nResult vector:\n";
