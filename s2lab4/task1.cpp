@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
 
     int p, rank, dims[NUM_DIMS], reorder = 0, periods[NUM_DIMS], source, dest;
+    double t1,t2;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &p);
     MPI_Comm comm_cart;
@@ -56,6 +57,7 @@ int main(int argc, char** argv) {
         fclose(fpC);
 
         B_T = T(B);
+        t1 = MPI_Wtime();
     }
 
     auto *Apart = new double[N*k];
@@ -77,7 +79,6 @@ int main(int argc, char** argv) {
     MPI_Cart_shift(comm_cart, 0, 1, &source, &dest);
 
     for (int i = 0; i < N * k; i++) Cpart[i] = 0;
-
     for (int i = 0; i < k; i++)
     {
         for (int j = 0; j < k; j++)
@@ -93,14 +94,17 @@ int main(int argc, char** argv) {
     for (int q = rank+1; q < rank+p; q++)
     {
         MPI_Sendrecv(Bpart, N*k, MPI_DOUBLE, source, 0, Bbuf, N * k, MPI_DOUBLE, dest, 0, comm_cart, &st);
-        for (int i = 0; i < N * k; i++) Bpart[i] = Bbuf[i];
+        for (int i = 0; i < N * k; i++)
+        {
+            Bpart[i] = Bbuf[i];
+        }
         for (int i = 0; i < k; i++)
         {
             for (int j = 0; j < k; j++)
             {
                 for (int t = 0; t < N; t++)
                 {
-                    Cpart[(i*N) + ((q % p) * k) + j] += Apart[(i * N) + t] + Bpart[(j*N) + t];
+                    Cpart[i*N + k * (q % p) + j] += Apart[i * N + t] * Bpart[j*N + t];
                 }
             }
         }
@@ -109,6 +113,7 @@ int main(int argc, char** argv) {
 
     if (rank == 0)
     {
+        t2 = MPI_Wtime();
         for (int i = 0; i < N; i++)
         {
             for (int j = 0; j < N; j++)
@@ -119,8 +124,9 @@ int main(int argc, char** argv) {
                     exit(MPI_ERR_OTHER);
                 }
             }
-
         }
+
+        std::cout << "RESULT IS CORRECT: " << p << " process execute in " << t2-t1 << '\n';
     }
 
     MPI_Finalize();
