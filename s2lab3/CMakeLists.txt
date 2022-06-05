@@ -8,3 +8,4 @@ set(CMAKE_CXX_COMPILER "/home/daniel/opt/usr/local/bin/mpic++")
 
 
 add_executable(task1 task1.cpp)
+add_executable(example example.cpp)

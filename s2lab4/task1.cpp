@@ -113,6 +113,7 @@ int main(int argc, char** argv) {
 
     if (rank == 0)
     {
+        std::cout << "N = " << N << '\n';
         t2 = MPI_Wtime();
         for (int i = 0; i < N; i++)
         {

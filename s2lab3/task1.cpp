@@ -29,121 +29,99 @@ int main(int argc, char** argv) {
     }
 
     int s = std::sqrt(size);
-
     int m;
     if (rank == 0)
     {
-        do
-        {
-            std::cout << "Введите размерность матрицы N: ";
-            std::cin >> N;
-            ost = modf(static_cast<double>(N)/static_cast<double>(s), &bf);
-            if (ost > 0)
-            {
-                std::cout << "N должен быть кратен s (" << s << ")\n";
-            }
-            else
-            {
-                break;
-            }
-        } while (true);
+        std::cout << "N: ";
+        std::cin >> N;
+        m = N/s;
     }
 
     MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    int *A, *V, *Arecv, *Vcalc, *Vrs;
-    A = new int[N*N];
-    Arecv = new int[N*N];
-    V = new int[N];
-    Vcalc = new int[N];
-    Vrs = new int[N];
+    MPI_Bcast(&s, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&m, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    for (int i = 0; i < N; i++)
-    {
-        Vcalc[i] = 0;
+    if (N % s != 0) {
+        if (rank == 0)
+            std::cout << "N должен быть кратен s (" << s << ")\n";
+        MPI_Finalize();
+        return MPI_ERR_ARG;
     }
 
-    m = N/s;
+    int *A, *Apart, *V, *C;
+    A = new int[N*N];
+    Apart = new int[m*m];
+    V = new int[N];
+    C = new int[N];
+    for (int i = 0; i < N; i++) C[i] = 0;
+
     if (rank == 0)
     {
-        std::cout << "N: " << N << " m: " << m << " s: " << s << " p: " << size << '\n';
-        for (int i = 0; i < N*N; i++)
+        std::cout << "Generated matrix\n";
+        for (int i = 0; i < N; i++)
         {
-            A[i] = rand() % MAX_VALUE;
+            for (int j = 0; j < N; j++)
+            {
+                A[i*N+j] = rand() % MAX_VALUE;
+                std::cout << A[i*N+j] << '\t';
+            }
+            std::cout << '\n';
         }
+        std::cout << "\nGenerated vector\n";
         for (int i = 0; i < N; i++)
         {
             V[i] = rand() % MAX_VALUE;
-        }
-
-
-        std::cout << "Generated matrix\n";
-
-
-        /*
-         * здесь мы выводим нашу матрицу, параллельно демонстрируя наше блочное устройство
-         * Матрица представлена в виде одномерного массива.
-         * первые m*m элементов - наш первый блок
-         * вторые m*m элементов - наш второй блок
-         * и.т.д.
-         * m*m*s*i + m*m*j  - указатель на начало блока (i,j)
-         */
-        for (int i = 0; i < s; i++) // проходимся по каждой строчке с блоками, их у нас s
-        {
-            /* для того, что-бы вывести каждую строчку для блока в строчке i и не поломать порядок, проходимся m раз по строке i */
-            for (int q = 0; q < m; q++)
-            {
-                /* выводим одну строчку блока (i,j) */
-                for (int j = 0; j < s; j++)
-                {
-                    for (int k = 0; k < m; k++)
-                    {
-                        std::cout << A[m*m*s*i + j*m*m + q*m + k] << '\t';
-                    }
-                }
-                std::cout << '\n';
-            }
-        }
-
-        std::cout << "Generated vector\n";
-        for (int i = 0; i < N; i++)
-        {
             std::cout << V[i] << '\n';
         }
+    }
+    MPI_Bcast(V, N, MPI_INT, 0, MPI_COMM_WORLD);
 
-        std::cout << "--------------------";
-        /*
-            Пример вывода блока (2;2)
+    MPI_Datatype blocktype;
+    MPI_Datatype blocktype2;
 
-            std::cout << "(2;2):\n";
-            for (int i = 0; i < m; i++)
-            {
-                for (int j = 0; j < m; j++)
-                {
-                    std::cout << A[m*m*s*1 + m*m*1 + i*m + j] << ' ';
-                }
-                std::cout << '\n';
-            }
-         */
+    MPI_Type_vector(m, m, N, MPI_INT, &blocktype2);
+
+    MPI_Type_create_resized(blocktype2, 0, sizeof(int), &blocktype);
+    MPI_Type_commit(&blocktype);
+    int *displs, *counts;
+    displs = new int[s * s];
+    counts = new int[s * s];
+    for (int i = 0; i < s; i++) {
+        for (int j = 0; j < s; j++) {
+            displs[i * s + j] = i * N * m + j * m;
+            counts[i * s + j] = 1;
+        }
     }
 
-    MPI_Bcast(V, N, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Scatter(A, m*m, MPI_INT, Arecv, m*m, MPI_INT, 0, MPI_COMM_WORLD);
-    int block_i = rank / s, block_j = rank % s;
+    for (int i = 0; i < m*m; i++)
+    {
+        Apart[i] = 0;
+    }
+
+    MPI_Scatterv(A, counts, displs, blocktype, Apart, m * m, MPI_INT, 0, MPI_COMM_WORLD);
+
+    int block_y = rank / s, block_x = rank % s;
+
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < m; j++)
         {
-            Vcalc[block_i*m + i] += Arecv[i*m + j] * V[block_j*m + j];
+            C[i + block_y * m] += Apart[i * m + j] * V[j + block_x * m];
         }
+
     }
 
-    MPI_Reduce(Vcalc, Vrs, N, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+    if (rank == 0)
+        MPI_Reduce(MPI_IN_PLACE, C, N, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+    else
+        MPI_Reduce(C, C, N, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+
     if (rank == 0)
     {
-        std::cout << "\nResult vector:\n";
+        std::cout << "\nRESULT VECTOR: \n\n";
         for (int i = 0; i < N; i++)
         {
-            std::cout << Vrs[i] << '\n';
+            std::cout << C[i] << std::endl;
         }
     }
 
